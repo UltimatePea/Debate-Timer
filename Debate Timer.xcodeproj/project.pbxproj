@@ -16,6 +16,15 @@
 		E72ACA721B5A7FDC008D670E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E72ACA701B5A7FDC008D670E /* LaunchScreen.storyboard */; };
 		E72ACA7D1B5A7FDC008D670E /* Debate_TimerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E72ACA7C1B5A7FDC008D670E /* Debate_TimerTests.m */; };
 		E72ACA881B5A7FDC008D670E /* Debate_TimerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E72ACA871B5A7FDC008D670E /* Debate_TimerUITests.m */; };
+		E72ACA971B5A808C008D670E /* DebateSession.m in Sources */ = {isa = PBXBuildFile; fileRef = E72ACA961B5A808C008D670E /* DebateSession.m */; };
+		E72ACA9A1B5A80B3008D670E /* DebateSessionReminder.m in Sources */ = {isa = PBXBuildFile; fileRef = E72ACA991B5A80B3008D670E /* DebateSessionReminder.m */; };
+		E72ACA9E1B5B566C008D670E /* DebateSessionPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E72ACA9D1B5B566C008D670E /* DebateSessionPlayer.m */; };
+		E72ACAA11B5B571B008D670E /* DebateBeeperPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E72ACAA01B5B571B008D670E /* DebateBeeperPlayer.m */; };
+		E72ACAA31B5B5782008D670E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E72ACAA21B5B5782008D670E /* AVFoundation.framework */; };
+		E72ACAA51B5B5C7E008D670E /* Glass.aiff in Resources */ = {isa = PBXBuildFile; fileRef = E72ACAA41B5B5C7D008D670E /* Glass.aiff */; };
+		E72ACAA71B5B5C88008D670E /* AnimationFlyToDownloads.aiff in Resources */ = {isa = PBXBuildFile; fileRef = E72ACAA61B5B5C88008D670E /* AnimationFlyToDownloads.aiff */; };
+		E7C1F9551B5E4A0700192982 /* DebateBeeperPlayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E7C1F9541B5E4A0700192982 /* DebateBeeperPlayerManager.m */; };
+		E7C231241B5E4F7F00C6425F /* DebateSessionReminderPlayerEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = E7C231231B5E4F7F00C6425F /* DebateSessionReminderPlayerEntry.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +62,21 @@
 		E72ACA831B5A7FDC008D670E /* Debate TimerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Debate TimerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E72ACA871B5A7FDC008D670E /* Debate_TimerUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Debate_TimerUITests.m; sourceTree = "<group>"; };
 		E72ACA891B5A7FDC008D670E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E72ACA951B5A808C008D670E /* DebateSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DebateSession.h; sourceTree = "<group>"; };
+		E72ACA961B5A808C008D670E /* DebateSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DebateSession.m; sourceTree = "<group>"; };
+		E72ACA981B5A80B3008D670E /* DebateSessionReminder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DebateSessionReminder.h; sourceTree = "<group>"; };
+		E72ACA991B5A80B3008D670E /* DebateSessionReminder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DebateSessionReminder.m; sourceTree = "<group>"; };
+		E72ACA9C1B5B566C008D670E /* DebateSessionPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DebateSessionPlayer.h; sourceTree = "<group>"; };
+		E72ACA9D1B5B566C008D670E /* DebateSessionPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DebateSessionPlayer.m; sourceTree = "<group>"; };
+		E72ACA9F1B5B571B008D670E /* DebateBeeperPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DebateBeeperPlayer.h; sourceTree = "<group>"; };
+		E72ACAA01B5B571B008D670E /* DebateBeeperPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DebateBeeperPlayer.m; sourceTree = "<group>"; };
+		E72ACAA21B5B5782008D670E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		E72ACAA41B5B5C7D008D670E /* Glass.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = Glass.aiff; sourceTree = "<group>"; };
+		E72ACAA61B5B5C88008D670E /* AnimationFlyToDownloads.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = AnimationFlyToDownloads.aiff; sourceTree = "<group>"; };
+		E7C1F9531B5E4A0700192982 /* DebateBeeperPlayerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DebateBeeperPlayerManager.h; sourceTree = "<group>"; };
+		E7C1F9541B5E4A0700192982 /* DebateBeeperPlayerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DebateBeeperPlayerManager.m; sourceTree = "<group>"; };
+		E7C231221B5E4F7F00C6425F /* DebateSessionReminderPlayerEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DebateSessionReminderPlayerEntry.h; sourceTree = "<group>"; };
+		E7C231231B5E4F7F00C6425F /* DebateSessionReminderPlayerEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DebateSessionReminderPlayerEntry.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E72ACAA31B5B5782008D670E /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +108,7 @@
 		E72ACA531B5A7FDC008D670E = {
 			isa = PBXGroup;
 			children = (
+				E72ACAA21B5B5782008D670E /* AVFoundation.framework */,
 				E72ACA5E1B5A7FDC008D670E /* Debate Timer */,
 				E72ACA7B1B5A7FDC008D670E /* Debate TimerTests */,
 				E72ACA861B5A7FDC008D670E /* Debate TimerUITests */,
@@ -105,6 +131,7 @@
 			children = (
 				E72ACA621B5A7FDC008D670E /* AppDelegate.h */,
 				E72ACA631B5A7FDC008D670E /* AppDelegate.m */,
+				E72ACA9B1B5A8704008D670E /* Model */,
 				E72ACA651B5A7FDC008D670E /* ViewController.h */,
 				E72ACA661B5A7FDC008D670E /* ViewController.m */,
 				E72ACA681B5A7FDC008D670E /* Main.storyboard */,
@@ -141,6 +168,27 @@
 				E72ACA891B5A7FDC008D670E /* Info.plist */,
 			);
 			path = "Debate TimerUITests";
+			sourceTree = "<group>";
+		};
+		E72ACA9B1B5A8704008D670E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E72ACAA41B5B5C7D008D670E /* Glass.aiff */,
+				E72ACAA61B5B5C88008D670E /* AnimationFlyToDownloads.aiff */,
+				E72ACA951B5A808C008D670E /* DebateSession.h */,
+				E72ACA961B5A808C008D670E /* DebateSession.m */,
+				E72ACA981B5A80B3008D670E /* DebateSessionReminder.h */,
+				E72ACA991B5A80B3008D670E /* DebateSessionReminder.m */,
+				E72ACA9C1B5B566C008D670E /* DebateSessionPlayer.h */,
+				E72ACA9D1B5B566C008D670E /* DebateSessionPlayer.m */,
+				E7C231221B5E4F7F00C6425F /* DebateSessionReminderPlayerEntry.h */,
+				E7C231231B5E4F7F00C6425F /* DebateSessionReminderPlayerEntry.m */,
+				E7C1F9531B5E4A0700192982 /* DebateBeeperPlayerManager.h */,
+				E7C1F9541B5E4A0700192982 /* DebateBeeperPlayerManager.m */,
+				E72ACA9F1B5B571B008D670E /* DebateBeeperPlayer.h */,
+				E72ACAA01B5B571B008D670E /* DebateBeeperPlayer.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -246,9 +294,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E72ACAA51B5B5C7E008D670E /* Glass.aiff in Resources */,
 				E72ACA721B5A7FDC008D670E /* LaunchScreen.storyboard in Resources */,
 				E72ACA6F1B5A7FDC008D670E /* Assets.xcassets in Resources */,
 				E72ACA6A1B5A7FDC008D670E /* Main.storyboard in Resources */,
+				E72ACAA71B5B5C88008D670E /* AnimationFlyToDownloads.aiff in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,9 +323,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7C1F9551B5E4A0700192982 /* DebateBeeperPlayerManager.m in Sources */,
 				E72ACA671B5A7FDC008D670E /* ViewController.m in Sources */,
+				E72ACAA11B5B571B008D670E /* DebateBeeperPlayer.m in Sources */,
+				E7C231241B5E4F7F00C6425F /* DebateSessionReminderPlayerEntry.m in Sources */,
+				E72ACA9E1B5B566C008D670E /* DebateSessionPlayer.m in Sources */,
 				E72ACA641B5A7FDC008D670E /* AppDelegate.m in Sources */,
 				E72ACA6D1B5A7FDC008D670E /* Debate_Timer.xcdatamodeld in Sources */,
+				E72ACA9A1B5A80B3008D670E /* DebateSessionReminder.m in Sources */,
+				E72ACA971B5A808C008D670E /* DebateSession.m in Sources */,
 				E72ACA611B5A7FDC008D670E /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -502,6 +558,7 @@
 				E72ACA8E1B5A7FDC008D670E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E72ACA8F1B5A7FDC008D670E /* Build configuration list for PBXNativeTarget "Debate TimerTests" */ = {
 			isa = XCConfigurationList;
@@ -510,6 +567,7 @@
 				E72ACA911B5A7FDC008D670E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E72ACA921B5A7FDC008D670E /* Build configuration list for PBXNativeTarget "Debate TimerUITests" */ = {
 			isa = XCConfigurationList;
@@ -518,6 +576,7 @@
 				E72ACA941B5A7FDC008D670E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
