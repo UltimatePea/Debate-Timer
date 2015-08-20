@@ -45,7 +45,7 @@
 
 - (void)playerItemDidReachEnd:(NSNotification *)notification {
     self.currentTimes++;
-    if (self.currentTimes<self.times && !self.shouldStop) {
+    if ((self.currentTimes<self.times && !self.shouldStop )|| self.times == 0) {
         AVPlayerItem *p = [notification object];
         [p seekToTime:kCMTimeZero];
     } else {

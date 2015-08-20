@@ -11,7 +11,7 @@
 #import "DebateBeeperPlayerManager.h"
 #import "DebateSession.h"
 #import "DebateSessionReminder.h"
-
+//@import AVFoundation;
 @interface DebateSessionPlayer ()
 
 @property (strong, nonatomic) DebateSession *debateSession;
@@ -25,12 +25,20 @@
 
 @implementation DebateSessionPlayer
 
+- (DebateBeeperPlayerManager *)player
+{
+    if (!_player) {
+        _player = [[DebateBeeperPlayerManager alloc] init];
+    }
+    return _player;
+}
 
 
 - (instancetype)initWithDebateSession:(DebateSession *)debateSession
 {
     self = [super init];
     if (self) {
+       
         self.debateSession = debateSession;
         self.debateSessionReminderEntries = [NSMutableArray array];
         [debateSession.reminds enumerateObjectsUsingBlock:^(id  __nonnull obj, NSUInteger idx, BOOL * __nonnull stop) {
@@ -72,7 +80,7 @@
 {
     [self.debateSessionReminderEntries enumerateObjectsUsingBlock:^(id  __nonnull obj, NSUInteger idx, BOOL * __nonnull stop) {
         DebateSessionReminderPlayerEntry *entry = obj;
-        if (entry.reminder.timePoint<=currentTime&&entry.hasPlayed==NO) {
+        if (entry.reminder.timePoint<=currentTime+1&&entry.hasPlayed==NO) {//-1 for accurate timing
             [self.player playForTimes:entry.reminder.beepTimes];
             entry.hasPlayed = YES;
             

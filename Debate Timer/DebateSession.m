@@ -18,5 +18,23 @@
     return _reminds;
 }
 
+#define KEY_REMINDS @"KEY_REMINDS"
+#define KEY_LENGTH @"KEY_LENGTH"
+
+- (void)encodeWithCoder:(nonnull NSCoder *)aCoder
+{
+    [aCoder encodeObject:self.reminds forKey:KEY_REMINDS];
+    [aCoder encodeDouble:self.length forKey:KEY_LENGTH];
+}
+
+- (instancetype)initWithCoder:(nonnull NSCoder *)aDecoder
+{
+    self = [super init];
+    if (self) {
+        self.reminds = [aDecoder decodeObjectForKey:KEY_REMINDS];
+        self.length = [aDecoder decodeDoubleForKey:KEY_LENGTH];
+    }
+    return self;
+}
 
 @end

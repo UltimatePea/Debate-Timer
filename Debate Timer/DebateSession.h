@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DebateSession : NSObject
+@interface DebateSession : NSObject <NSCoding>
 
 @property (nonatomic) NSTimeInterval length;
 @property (strong, nonatomic) NSMutableArray *reminds;

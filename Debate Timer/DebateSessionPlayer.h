@@ -11,7 +11,7 @@
 
 @interface DebateSessionPlayer : NSObject
 
-- (instancetype)initWithDebateSession:(DebateSession *)debateSession;
+- (instancetype)initWithDebateSession:(DebateSession *)debateSession;//designated initializer
 - (void)playWithUpdateBlock:(void (^)(NSTimeInterval currentTime))block;
 - (void)stop;
 
