@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E71BFBE31B85A18D005BB627 /* Launch Xcode 6.4.xib in Resources */ = {isa = PBXBuildFile; fileRef = E71BFBE21B85A18D005BB627 /* Launch Xcode 6.4.xib */; };
 		E72ACA611B5A7FDC008D670E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E72ACA601B5A7FDC008D670E /* main.m */; };
 		E72ACA641B5A7FDC008D670E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E72ACA631B5A7FDC008D670E /* AppDelegate.m */; };
 		E72ACA671B5A7FDC008D670E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E72ACA661B5A7FDC008D670E /* ViewController.m */; };
@@ -23,6 +22,7 @@
 		E72ACAA31B5B5782008D670E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E72ACAA21B5B5782008D670E /* AVFoundation.framework */; };
 		E72ACAA51B5B5C7E008D670E /* Glass.aiff in Resources */ = {isa = PBXBuildFile; fileRef = E72ACAA41B5B5C7D008D670E /* Glass.aiff */; };
 		E72ACAA71B5B5C88008D670E /* AnimationFlyToDownloads.aiff in Resources */ = {isa = PBXBuildFile; fileRef = E72ACAA61B5B5C88008D670E /* AnimationFlyToDownloads.aiff */; };
+		E772CC071B85A3F50095A6A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E772CC051B85A3F50095A6A1 /* LaunchScreen.storyboard */; };
 		E7BCB2B41B84DA55000D9830 /* Debate.m in Sources */ = {isa = PBXBuildFile; fileRef = E7BCB2B31B84DA55000D9830 /* Debate.m */; };
 		E7BCB2B71B84DAB5000D9830 /* Debates.m in Sources */ = {isa = PBXBuildFile; fileRef = E7BCB2B61B84DAB5000D9830 /* Debates.m */; };
 		E7BCB2BA1B84DD5E000D9830 /* GenericTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7BCB2B91B84DD5E000D9830 /* GenericTableViewController.m */; };
@@ -50,7 +50,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		E71BFBE21B85A18D005BB627 /* Launch Xcode 6.4.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Xcode 6.4.xib"; sourceTree = "<group>"; };
 		E72ACA5C1B5A7FDC008D670E /* WSDC Timer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WSDC Timer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E72ACA601B5A7FDC008D670E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E72ACA621B5A7FDC008D670E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -78,6 +77,7 @@
 		E72ACAA21B5B5782008D670E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		E72ACAA41B5B5C7D008D670E /* Glass.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = Glass.aiff; sourceTree = "<group>"; };
 		E72ACAA61B5B5C88008D670E /* AnimationFlyToDownloads.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = AnimationFlyToDownloads.aiff; sourceTree = "<group>"; };
+		E772CC061B85A3F50095A6A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E7BCB2B21B84DA55000D9830 /* Debate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Debate.h; sourceTree = "<group>"; };
 		E7BCB2B31B84DA55000D9830 /* Debate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Debate.m; sourceTree = "<group>"; };
 		E7BCB2B51B84DAB5000D9830 /* Debates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Debates.h; sourceTree = "<group>"; };
@@ -155,9 +155,9 @@
 				E7BCB2BC1B84DF6F000D9830 /* DebatesTableViewController.m */,
 				E7BCB2BE1B84E118000D9830 /* DebateTimingViewController.h */,
 				E7BCB2BF1B84E118000D9830 /* DebateTimingViewController.m */,
+				E772CC051B85A3F50095A6A1 /* LaunchScreen.storyboard */,
 				E72ACA681B5A7FDC008D670E /* Main.storyboard */,
 				E72ACA6E1B5A7FDC008D670E /* Assets.xcassets */,
-				E71BFBE21B85A18D005BB627 /* Launch Xcode 6.4.xib */,
 				E72ACA731B5A7FDC008D670E /* Info.plist */,
 				E72ACA6B1B5A7FDC008D670E /* Debate_Timer.xcdatamodeld */,
 				E72ACA5F1B5A7FDC008D670E /* Supporting Files */,
@@ -320,9 +320,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E72ACAA51B5B5C7E008D670E /* Glass.aiff in Resources */,
-				E71BFBE31B85A18D005BB627 /* Launch Xcode 6.4.xib in Resources */,
 				E72ACA6F1B5A7FDC008D670E /* Assets.xcassets in Resources */,
 				E72ACA6A1B5A7FDC008D670E /* Main.storyboard in Resources */,
+				E772CC071B85A3F50095A6A1 /* LaunchScreen.storyboard in Resources */,
 				E72ACAA71B5B5C88008D670E /* AnimationFlyToDownloads.aiff in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -404,6 +404,14 @@
 				E72ACA691B5A7FDC008D670E /* Base */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E772CC051B85A3F50095A6A1 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E772CC061B85A3F50095A6A1 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

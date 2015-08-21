@@ -77,12 +77,18 @@
     [UIApplication sharedApplication].idleTimerDisabled = YES;
 }
 - (IBAction)stop:(id)sender {
-    [self.player stop];
-    self.buttonEdit.enabled = YES;
-    self.startButton.enabled = YES;
-    self.stopButton.enabled = NO;
-    self.labelTiming.textColor = [UIColor blackColor];
-    [UIApplication sharedApplication].idleTimerDisabled = NO;
+    
+    if (self.startButton.enabled == YES) {
+        self.stopButton.enabled = NO;
+        self.labelTiming.textColor = [UIColor blackColor];
+        [UIApplication sharedApplication].idleTimerDisabled = NO;
+        self.selectedTimingSessionNumber = self.selectedTimingSessionNumber;
+    } else {
+        [self.player stop];
+        self.buttonEdit.enabled = YES;
+        self.startButton.enabled = YES;
+    }
+    
 }
 - (IBAction)edit:(id)sender {
     
@@ -97,7 +103,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
         // Do any additional setup after loading the view.
-    self.selectedTimingSessionNumber = 0;
+    self.selectedTimingSessionNumber = 2;
     self.stopButton.enabled = NO;
     NSError *error;
     [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback withOptions:AVAudioSessionCategoryOptionDuckOthers error:&error];
@@ -134,7 +140,7 @@
         return [NSString stringWithFormat:@"%d", (int)timeInterval];
     }
     int numOfMinutes = (int)(timeInterval/60);
-    int numOfSeconds = (int)((int) timeInterval % 60);
+    int numOfSeconds = ((int)ceil(timeInterval)) % 60;
     return [NSString stringWithFormat:@"%@%d:%@%d", numOfMinutes<10?@"0":@"", numOfMinutes, numOfSeconds<10?@"0":@"", numOfSeconds];
 }
 

@@ -80,7 +80,7 @@
 {
     [self.debateSessionReminderEntries enumerateObjectsUsingBlock:^(id  __nonnull obj, NSUInteger idx, BOOL * __nonnull stop) {
         DebateSessionReminderPlayerEntry *entry = obj;
-        if (entry.reminder.timePoint<=currentTime+1&&entry.hasPlayed==NO) {//-1 for accurate timing
+        if (entry.reminder.timePoint<=currentTime&&entry.hasPlayed==NO) {//-1 for accurate timing
             [self.player playForTimes:entry.reminder.beepTimes];
             entry.hasPlayed = YES;
             
