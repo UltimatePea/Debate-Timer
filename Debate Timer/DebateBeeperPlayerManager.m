@@ -26,7 +26,7 @@
 
 - (DebateBeeperPlayer *)playForTimes:(int)numberOfTimes;
 {
-    DebateBeeperPlayer *player = [[DebateBeeperPlayer alloc] initWithTimesPlay:numberOfTimes interval:0.5 compeleteBlock:^{
+    DebateBeeperPlayer *player = [[DebateBeeperPlayer alloc] initWithTimesPlay:numberOfTimes interval:0.3 compeleteBlock:^{
         [self.debateBeeperPlayers removeObject:player];
     }];
     [self.debateBeeperPlayers addObject:player];

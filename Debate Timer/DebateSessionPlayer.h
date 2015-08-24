@@ -14,5 +14,7 @@
 - (instancetype)initWithDebateSession:(DebateSession *)debateSession;//designated initializer
 - (void)playWithUpdateBlock:(void (^)(NSTimeInterval currentTime))block;
 - (void)stop;
-
+@property (nonatomic) BOOL hasPaused;
+- (void)pause;
+- (void)resume;
 @end

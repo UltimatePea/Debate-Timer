@@ -32,7 +32,7 @@
 
 - (void)play
 {
-    self.player = [[AVPlayer alloc] initWithURL:[[NSBundle mainBundle] URLForResource:@"Glass" withExtension:@"aiff"]];
+    self.player = [[AVPlayer alloc] initWithURL:[[NSBundle mainBundle] URLForResource:@"Ring" withExtension:@"mp3"]];
     self.player.actionAtItemEnd = AVPlayerActionAtItemEndNone;
     
     [[NSNotificationCenter defaultCenter] addObserver:self

@@ -14,6 +14,7 @@
 
 
 @interface DebateTimingViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *durationIndicatorLabel;
 
 @property (weak, nonatomic) IBOutlet UILabel *labelTiming;
 @property (weak, nonatomic) IBOutlet UILabel *labelElapsedTime;
@@ -26,7 +27,7 @@
 @property (strong, nonatomic) DebateSession *session;
 @property (nonatomic) int selectedTimingSessionNumber;
 @property (weak, nonatomic) IBOutlet UIButton *testingSoundButton;
-
+@property (nonatomic) BOOL hasStarted;
 @end
 
 @implementation DebateTimingViewController
@@ -48,11 +49,51 @@
 }
 
 
+- (void)tappedButtonWithTitle:(NSString *)title
+{
+    if ([title isEqualToString:@"Start"]) {
+        [self startPlaying];
+        
+        [self.startButton setTitle:@"Stop" forState:UIControlStateNormal];
+        [self.startButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+        [self.stopButton setTitle:@"Pause" forState:UIControlStateNormal];
+        [self.stopButton setTitleColor:self.stopButton.tintColor forState:UIControlStateNormal];
+        self.stopButton.hidden = NO;
+    } else if ([title isEqualToString:@"Pause"]){
+        [self.player pause];
+        [self.stopButton setTitle:@"Resume" forState:UIControlStateNormal];
+        [self.stopButton setTitleColor:self.stopButton.tintColor forState:UIControlStateNormal];
+    } else if ([title isEqualToString:@"Resume"]){
+        [self.player resume];
+        [self.stopButton setTitle:@"Pause" forState:UIControlStateNormal];
+        [self.stopButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    } else if ([title isEqualToString:@"Stop"]){
+        [self.player stop];
+        [self.startButton setTitle:@"Reset" forState:UIControlStateNormal];
+        [self.startButton setTitleColor:self.startButton.tintColor forState:UIControlStateNormal];
+        self.stopButton.hidden = YES;
+    } else if ([title isEqualToString:@"Reset"]){
+        self.labelElapsedTime.textColor = [UIColor blackColor];
+        [UIApplication sharedApplication].idleTimerDisabled = NO;
+        self.selectedTimingSessionNumber = self.selectedTimingSessionNumber;//for side effect
+        [self.startButton setTitle:@"Start" forState:UIControlStateNormal];
+        [self.buttonEdit setEnabled:YES];
+        
+    }
+}
+
 
 - (IBAction)start:(id)sender {
+    if ([sender isKindOfClass:[UIButton class]]) {
+        UIButton *button = sender;
+        [self tappedButtonWithTitle:button.titleLabel.text];
+    }
+    
+}
+
+- (void)startPlaying
+{
     self.buttonEdit.enabled = NO;
-    self.startButton.enabled = NO;
-    self.stopButton.enabled = YES;
     self.player = [[DebateSessionPlayer alloc] initWithDebateSession:self.session];
     [self.player playWithUpdateBlock:^(NSTimeInterval currentTime) {
         self.labelTiming.text = [self stringForFormattedTimeInterval:self.session.length - currentTime];
@@ -64,29 +105,23 @@
         double remainingTime = self.session.length - currentTime;
         if (remainingTime < 30) {
             if (remainingTime < 0) {
-                self.labelTiming.textColor = [UIColor colorWithRed:179 green:0 blue:0 alpha:1.0];
+                self.labelElapsedTime.textColor = [UIColor colorWithRed:179 green:0 blue:0 alpha:1.0];
             } else {
-                self.labelTiming.textColor = [UIColor colorWithRed:255/255 green:222/255 blue:132/255 alpha:1.0];
+                self.labelElapsedTime.textColor = [UIColor colorWithRed:255/255 green:222/255 blue:132/255 alpha:1.0];
             }
         }  else {
-            self.labelTiming.textColor = [UIColor blackColor];
+            self.labelElapsedTime.textColor = [UIColor blackColor];
         }
         //         < 30?( self.session.length - currentTime < 0? ::[UIColor blackColor];
     }];
     
     [UIApplication sharedApplication].idleTimerDisabled = YES;
 }
+
 - (IBAction)stop:(id)sender {
-    
-    if (self.startButton.enabled == YES) {
-        self.stopButton.enabled = NO;
-        self.labelTiming.textColor = [UIColor blackColor];
-        [UIApplication sharedApplication].idleTimerDisabled = NO;
-        self.selectedTimingSessionNumber = self.selectedTimingSessionNumber;
-    } else {
-        [self.player stop];
-        self.buttonEdit.enabled = YES;
-        self.startButton.enabled = YES;
+    if ([sender isKindOfClass:[UIButton class]]) {
+        UIButton *button = sender;
+        [self tappedButtonWithTitle:button.titleLabel.text];
     }
     
 }
@@ -103,11 +138,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
         // Do any additional setup after loading the view.
-    self.selectedTimingSessionNumber = 2;
-    self.stopButton.enabled = NO;
+    self.selectedTimingSessionNumber = 0;
+    self.stopButton.hidden = YES;
     NSError *error;
     [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback withOptions:AVAudioSessionCategoryOptionDuckOthers error:&error];
-    [[[UIAlertView alloc] initWithTitle:@"Reminder" message:@"During timer countdown, your device is disabled from sleeping. Please make sure that silence mode is turned off and volumn is turned up. Timer may not function properly while running in the background." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+    [[[UIAlertView alloc] initWithTitle:@"Reminder" message:@"During timer countdown, your device is disabled from sleeping. Timer may not function properly while running in the background. Please make sure to:\r\n\r\n 1. Turn off silent mode.\r\n2. Turn up the volume.\r\n3. Test the sound. " delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
     
 }
 
@@ -131,7 +166,7 @@
     self.labelTotoalTime.text = [self stringForFormattedTimeInterval:self.session.length];
     self.progressBar.progress = 0;
    [self.buttonEdit setTitle:self.selectedTimingSessionNumber==0?@"Change to 8:00":@"Change to 4:00" forState:UIControlStateNormal];
-    
+    self.durationIndicatorLabel.text = self.selectedTimingSessionNumber==0?@"4 min":@"8 min";
 }
 
 - (NSString *)stringForFormattedTimeInterval:(NSTimeInterval)timeInterval
@@ -140,7 +175,7 @@
         return [NSString stringWithFormat:@"%d", (int)timeInterval];
     }
     int numOfMinutes = (int)(timeInterval/60);
-    int numOfSeconds = ((int)ceil(timeInterval)) % 60;
+    int numOfSeconds = ((int)floor(timeInterval)) % 60;
     return [NSString stringWithFormat:@"%@%d:%@%d", numOfMinutes<10?@"0":@"", numOfMinutes, numOfSeconds<10?@"0":@"", numOfSeconds];
 }
 
@@ -172,7 +207,7 @@
             [session.reminds addObject:[[DebateSessionReminder alloc] initWithBeepTimes:1 timePoint:3]];
             [session.reminds addObject:[[DebateSessionReminder alloc] initWithBeepTimes:2 timePoint:5]];
 //            [session.reminds addObject:[[DebateSessionReminder alloc] initWithBeepTimes:3 timePoint:7]];
-//            [session.reminds addObject:[[DebateSessionReminder alloc] initWithBeepTimes:0 timePoint:10]];
+            [session.reminds addObject:[[DebateSessionReminder alloc] initWithBeepTimes:0 timePoint:10]];
             
             break;
         default:

@@ -65,15 +65,15 @@
 
 - (void)timer:(NSTimer *)timer
 {
-    self.currentTime += 0.1;
-    NSDate *currentDate = [NSDate dateWithTimeIntervalSinceNow:0];
-    if ([currentDate timeIntervalSinceDate:self.startingTime] - self.currentTime >= 0.1) {
-        NSLog(@"Timer Probably Error");
+    if (self.hasPaused == NO) {
+        self.currentTime += 0.1;
+        NSDate *currentDate = [NSDate dateWithTimeIntervalSinceNow:0];
+        if ([currentDate timeIntervalSinceDate:self.startingTime] - self.currentTime >= 0.1) {
+            //        NSLog(@"Timer Probably Error");
+        }
+        self.block(self.currentTime);
+        [self playAccordingToCurrentTime:self.currentTime];
     }
-    self.block(self.currentTime);
-    [self playAccordingToCurrentTime:self.currentTime];
-    
-    
 }
 
 - (void)playAccordingToCurrentTime:(NSTimeInterval)currentTime
@@ -86,6 +86,14 @@
             
         }
     }];
+}
+- (void)pause;
+{
+    self.hasPaused = YES;
+}
+- (void)resume;
+{
+    self.hasPaused = NO;
 }
 
 - (void)stop

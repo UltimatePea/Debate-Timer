@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>E083668A-ACE9-47C6-89E0-5A5B234210C5</string>
 	<key>IDESourceControlProjectName</key>
-	<string>WSDC Timer</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>4F3CD7A10E303D1FCD721C3799D679EE77916C1E</key>
 		<string>https://github.com/UltimatePea/Debate-Timer.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>WSDC Timer.xcodeproj</string>
+	<string>WSDC Timer.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>4F3CD7A10E303D1FCD721C3799D679EE77916C1E</key>
